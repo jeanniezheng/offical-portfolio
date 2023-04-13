@@ -20,7 +20,7 @@ body {
 
 svg {
     height: 100%;
-    width: 70%;
+    width: 100%;
     color: aliceblue;
     display: inline-block;
     /* stroke-width: 5px; */
@@ -36,5 +36,31 @@ section {
 }
 
 .two {
-    background-color: rgb(37, 56, 56);
+    background-color: rgb(88, 131, 131);
+}
+
+#line-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+#svg {
+    height: 100%;
+    width: 100%;
+    color: aliceblue;
+    display: inline-block;
+    opacity: 0;
+}
+
+#section2 {
+    background-image: url('touch.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
 }
