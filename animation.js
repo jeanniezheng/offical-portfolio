@@ -11,19 +11,22 @@ for (let i = 0; i < paths.length; i++) {
 
     // fire scroll
     window.addEventListener('scroll', () => {
+        // Get the position of section2
+        const section2 = document.querySelector('#section2');
+        const section2Pos = section2.getBoundingClientRect().top;
+
         let scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - (window.innerHeight * 6));
-
         let drawLength = pathLength * scrollPercentage;
+        let element = document.getElementById('svg');
 
-        var element = document.getElementById('svg');
-        var position = element.getBoundingClientRect();
-
-        // If the svg element is in view
-        if (position.top <= window.innerHeight && position.bottom >= 0) {
+        if (section2Pos < window.innerHeight) {
+            // If the svg has passed section2, hide it
+            element.style.opacity = "0";
+        } else {
+            // Otherwise, show it
             element.style.opacity = "1";
         }
 
         path.style.strokeDashoffset = pathLength - drawLength;
-
     });
 }
