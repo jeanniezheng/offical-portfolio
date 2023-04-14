@@ -15,7 +15,7 @@ for (let i = 0; i < paths.length; i++) {
         const section2 = document.querySelector('#section2');
         const section2Pos = section2.getBoundingClientRect().top;
 
-        let scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - (window.innerHeight * 6));
+        let scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - (window.innerHeight * 4));
         let drawLength = pathLength * scrollPercentage;
         let element = document.getElementById('svg');
 
