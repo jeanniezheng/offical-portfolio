@@ -11,6 +11,7 @@ let element2 = document.getElementById('svg2')
 let element3 = document.getElementById('svg3')
 
 
+
 for (let i = 0; i < paths1.length; i++) {
     let path = paths1[i];
     let pathLength = path.getTotalLength();
@@ -30,10 +31,10 @@ for (let i = 0; i < paths1.length; i++) {
         const section3 = document.querySelector('#section3');
         const section3Pos = section3.getBoundingClientRect().top;
 
-        const section4 = document.querySelector('#section4');
-        const section4Pos = section4.getBoundingClientRect().top;
+        // const section4 = document.querySelector('#section4');
+        // const section4Pos = section4.getBoundingClientRect().top;
 
-        let scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - (window.innerHeight * 4));
+        let scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - (window.innerHeight * 3));
 
         let drawLength = pathLength * scrollPercentage;
 
@@ -41,19 +42,26 @@ for (let i = 0; i < paths1.length; i++) {
             // If the svg has passed section2, hide it
             element1.style.opacity = "1";
             element2.style.opacity = '0';
+            element3.style.opacity = '0';
+
 
         }
         else if (window.innerHeight > section2Pos && window.innerHeight < section3Pos) {
             // Otherwise, show it
             element1.style.opacity = "0";
             element2.style.opacity = '1';
+            element3.style.opacity = '0';
+
 
         }
 
-        else if (window.innerHeight > section3Pos && window.innerHeight < section4Pos) {
+        else if (window.innerHeight > section3Pos) {
             element2.style.opacity = '0';
-        } else {
             element3.style.opacity = '1';
+
+        }
+        else {
+            element3.style.opacity = '0';
 
         }
 
@@ -80,14 +88,30 @@ for (let i = 0; i < paths2.length; i++) {
         const section2 = document.querySelector('#section2');
         const section2Pos = section2.getBoundingClientRect().top;
 
-        let scrollPercentage = Math.max(0, (window.pageYOffset - section2Pos) / (document.documentElement.scrollHeight - (window.innerHeight * 5) - section2Pos));
+        let scrollPercentage = Math.max(0, (window.pageYOffset - section2Pos) / (document.documentElement.scrollHeight - (window.innerHeight * 2) - section2Pos));
 
         let drawLength = pathLength * scrollPercentage;
+
+
+
+        // if (section2Pos < window.innerHeight) {
+        //     // If the svg has passed section2, hide it
+        //     element1.style.opacity = "0";
+        //     element2.style.opacity = '1';
+
+
+        // } else {
+        //     // Otherwise, show it
+        //     element1.style.opacity = "1";
+        //     element2.style.opacity = '0';
+
+        // }
 
         path.style.strokeDashoffset =
             pathLength - drawLength;
 
     });
+
 }
 
 //path 3
@@ -103,19 +127,18 @@ for (let i = 0; i < paths3.length; i++) {
     // fire scroll
     window.addEventListener('scroll', () => {
         // Get the position of section2
-
         const section3 = document.querySelector('#section3');
         const section3Pos = section3.getBoundingClientRect().top;
 
-        const section4 = document.querySelector('#section4');
-        const section4Pos = section4.getBoundingClientRect().top;
-
-        let scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - (window.innerHeight * 4));
+        let scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - (window.innerHeight));
 
         let drawLength = pathLength * scrollPercentage;
+
 
         path.style.strokeDashoffset =
             pathLength - drawLength;
 
     });
+
+
 }

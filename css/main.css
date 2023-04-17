@@ -2,7 +2,7 @@
 
 body {
     margin: 0;
-    height: 700vh;
+    /* height: 700vh; */
     font-family: Lekton, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -80,11 +80,11 @@ section:nth-child(odd) {
     left: 0;
     z-index: 0;
     height: 100%;
-    width: 175%;
+    width: 100%;
     color: aliceblue;
     display: inline-block;
     opacity: 0;
-    display: none;
+    /* display: none; */
 }
 
 
