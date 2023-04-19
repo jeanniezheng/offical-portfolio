@@ -21,13 +21,28 @@ body {
 }
 
 section {
-    height: 100vh;
-    display: grid;
+    min-height: 100vh;
+    /* display: grid; */
     font-size: 2rem;
-    place-content: center;
+    /* place-content: center; */
 }
 
-#name {}
+#name {
+    display: grid;
+    place-content: center;
+    text-align: center;
+}
+
+#section1 {
+    display: grid;
+    place-items: center;
+}
+
+#section1 p {
+    text-align: center;
+    color: white;
+}
+
 
 section:nth-child(odd) {
     /* green */
@@ -45,12 +60,19 @@ section:nth-child(odd) {
     text-align: center;
 }
 
-#section2 {
+#section1,
+#section2,
+#section3 {
+    /* display: flex; */
     place-content: inherit;
     text-align: center;
 }
 
-#svg1 {
+
+
+#svg1,
+#svg2,
+#svg3 {
     position: fixed;
     top: 0;
     left: 0;
@@ -63,36 +85,12 @@ section:nth-child(odd) {
 }
 
 #svg2 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    height: 100%;
-    width: 175%;
-    color: aliceblue;
-    display: inline-block;
-    opacity: 0;
+    width: 150%;
 }
 
-#svg3 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    height: 100%;
+img {
     width: 100%;
-    color: aliceblue;
-    display: inline-block;
-    opacity: 0;
-    /* display: none; */
+    height: 75%;
+    z-index: 4;
+    opacity: .7;
 }
-
-
-
-/* #section2 {
-    background-image: url('touch.svg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
-} */

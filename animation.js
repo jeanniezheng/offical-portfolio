@@ -25,14 +25,15 @@ for (let i = 0; i < paths1.length; i++) {
     window.addEventListener('scroll', () => {
         // Get the position of section2
 
+        const section1 = document.querySelector('#name');
+        const section1Pos = section1.getBoundingClientRect().top;
+
         const section2 = document.querySelector('#section2');
         const section2Pos = section2.getBoundingClientRect().top;
 
         const section3 = document.querySelector('#section3');
         const section3Pos = section3.getBoundingClientRect().top;
 
-        // const section4 = document.querySelector('#section4');
-        // const section4Pos = section4.getBoundingClientRect().top;
 
         let scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - (window.innerHeight * 3));
 
@@ -88,24 +89,9 @@ for (let i = 0; i < paths2.length; i++) {
         const section2 = document.querySelector('#section2');
         const section2Pos = section2.getBoundingClientRect().top;
 
-        let scrollPercentage = Math.max(0, (window.pageYOffset - section2Pos) / (document.documentElement.scrollHeight - (window.innerHeight * 2) - section2Pos));
+        let scrollPercentage = Math.max(0, (window.pageYOffset - section2Pos) / (section2.offsetHeight));
 
         let drawLength = pathLength * scrollPercentage;
-
-
-
-        // if (section2Pos < window.innerHeight) {
-        //     // If the svg has passed section2, hide it
-        //     element1.style.opacity = "0";
-        //     element2.style.opacity = '1';
-
-
-        // } else {
-        //     // Otherwise, show it
-        //     element1.style.opacity = "1";
-        //     element2.style.opacity = '0';
-
-        // }
 
         path.style.strokeDashoffset =
             pathLength - drawLength;
@@ -127,18 +113,15 @@ for (let i = 0; i < paths3.length; i++) {
     // fire scroll
     window.addEventListener('scroll', () => {
         // Get the position of section2
-        const section3 = document.querySelector('#section3');
+        const section3 = document.querySelector('#section2');
         const section3Pos = section3.getBoundingClientRect().top;
-
-        let scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - (window.innerHeight));
+        let scrollPercentage = Math.max(0, (window.pageYOffset - section3Pos) / (section3.offsetHeight));
 
         let drawLength = pathLength * scrollPercentage;
-
 
         path.style.strokeDashoffset =
             pathLength - drawLength;
 
     });
-
 
 }
