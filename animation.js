@@ -115,7 +115,10 @@ for (let i = 0; i < paths3.length; i++) {
         // Get the position of section2
         const section3 = document.querySelector('#section2');
         const section3Pos = section3.getBoundingClientRect().top;
-        let scrollPercentage = Math.max(0, (window.pageYOffset - section3Pos) / (section3.offsetHeight));
+        // let scrollPercentage = Math.max(0, (window.pageYOffset - section3Pos) / (section3.offsetHeight));
+
+        let scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - (window.innerHeight) * 4);
+
 
         let drawLength = pathLength * scrollPercentage;
 
