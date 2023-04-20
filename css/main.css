@@ -94,7 +94,7 @@ section:nth-child(even) {
 }
 
 #section3 {
-    height: 60vh;
+    height: 100vh;
 }
 
 
@@ -119,6 +119,10 @@ section:nth-child(even) {
     /* width 100% in desktop */
     width: 150%;
     height: 100vh;
+}
+
+#svg3 {
+    height: 50%;
 }
 
 .slider-wrapper {
