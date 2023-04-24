@@ -21,7 +21,9 @@ for (let i = 0; i < svgPaths.length; i++) {
             const section2Pos = section2.getBoundingClientRect().top;
             const section3Pos = section3.getBoundingClientRect().top;
 
-            let scrollPercentage = i === 0 ? (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - (window.innerHeight * 3)) : Math.max(0, (window.pageYOffset - section2Pos) / (section2.offsetHeight))
+            let scrollPercentage = i === 0 ?
+                (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - (window.innerHeight))
+                : Math.max(0, (window.pageYOffset - section2Pos) / (section2.offsetHeight))
 
 
             let drawLength = pathLength * scrollPercentage;
