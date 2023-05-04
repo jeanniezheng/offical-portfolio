@@ -62,3 +62,47 @@ prevButton.addEventListener("click", () => {
     const slideWidth = slide.clientWidth;
     slidesContainer.scrollLeft -= slideWidth;
 });
+
+//Form Handling
+// const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdwcpPk18Lj8vXbwuytqQare27aeR-I0kQe9CYnVNNuOGIdiQ/formResponse';
+
+// const form = document.getElementById('contact-form');
+
+// form.addEventListener('submit', async (e) => {
+//     e.preventDefault();
+
+//     const name = form.elements['entry.2095182358'].value;
+//     const email = form.elements['entry.50959385'].value;
+//     const message = form.elements['entry.836329760'].value;
+
+//     const formData = new FormData();
+//     formData.append('entry.2095182358', name);
+//     formData.append('entry.50959385', email);
+//     formData.append('entry.836329760', message);
+
+//     try {
+//         const response = await fetch(formUrl, {
+//             method: 'POST',
+//             mode: 'no-cors',
+//             body: formData,
+//         });
+
+//         console.log('Form submission successful!', response.status);
+//     } catch (error) {
+//         console.error('Form submission error:', error);
+//     }
+// });
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxPvrvflGb4BKKMmRK9SwpxT0lIh8Lr8GGNJfjTXYwjtK5bFVOAEWtPmwq0s4Ec7kswfw/exec'
+const form = document.forms['contact-us']
+
+form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+            form.reset()
+            console.log('Success!', response)
+            alert("I've recieved your message!")
+        })
+        .catch(error => console.error('Error!', error.message))
+})
