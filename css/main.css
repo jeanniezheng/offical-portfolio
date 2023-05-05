@@ -44,7 +44,7 @@ section {
     /* place-content: center; */
 }
 
-#name {
+#bio-name {
     height: 100vh;
     display: grid;
     place-content: center;
