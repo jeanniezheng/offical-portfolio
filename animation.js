@@ -37,6 +37,7 @@ for (let i = 0; i < svgPaths.length; i++) {
                 svgPaths[1].element.style.opacity = '1';
                 svgPaths[2].element.style.opacity = '0';
             } else if (window.innerHeight > section3Pos) {
+                svgPaths[0].element.style.opacity = "0";
                 svgPaths[1].element.style.opacity = '0';
                 svgPaths[2].element.style.opacity = '1';
             } else {
